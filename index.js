@@ -40,6 +40,14 @@ export default function solution(content){
     .filter((port) => port !== undefined);
   const ports = _.uniqBy(allports).join('\n  ').trim();
   //third step
+  const malesCount = processedData
+    .filter((passanger) => passanger[indexes.sex] === 'male')
+    .reduce((acc, passanger) => acc + 1, 0);
+  const femalesCount = processedData
+    .filter((passanger) => passanger[indexes.sex] === 'female')
+    .reduce((acc, passanger) => acc + 1, 0);
+  const malesRatio = Math.floor((malesCount / totalAmount) * 100);
+  const femalesRatio = Math.floor((femalesCount / totalAmount) * 100);
   //fourth step
   //fifth step
   // END
@@ -48,8 +56,8 @@ export default function solution(content){
 The ports passengers were embarked from:
   ${ports}
 Gender ratio:
-  male - %
-  female - %
+  male - ${malesRatio}%
+  female - ${femalesRatio}%
 Survaving ratio:
   %
 Names, that start with A:`;
