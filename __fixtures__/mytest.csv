@@ -1,0 +1,6 @@
+PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
+1,0,2,"Pinguin Pinguinson",male,10,7,,880151,20.05,A106,Q
+2,0,1,"Sir Bookworm E.T.S. Clay",male,50,0,,111111,30.01,B10,S
+3,1,3,"Pepper A. Salt",female,79,2,,018645,10,,C
+4,1,2,"Mr L. Joseph T. Akecare", male,30,0,,A86540,32.1,B123,B
+5,0,1,"Mrs Minty Sheep",female,27,1,,A86510,27.65,A1,A

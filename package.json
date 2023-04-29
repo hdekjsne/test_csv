@@ -16,9 +16,5 @@
   "bugs": {
     "url": "https://github.com/nbagr/test_csv/issues"
   },
-  "homepage": "https://github.com/nbagr/test_csv#readme",
-  "dependencies": {
-    "jest": "^29.5.0",
-    "lodash": "^4.17.21"
-  }
+  "homepage": "https://github.com/nbagr/test_csv#readme"
 }
