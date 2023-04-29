@@ -17,17 +17,28 @@ export default function solution(content){
     port: 11,
   };
   const processedData = content
-    .split('\n')
+    .split('\r\n')
     .slice(1, -1)
-    .map((passanger) => passanger.split(','));
-  console.log(processedData)
+    .map((passanger) => {
+      const result = passanger
+        .split('"')
+        .map((part, index) => {
+          if (index === 0 || index === 2) {
+            return part.split(',');
+          }
+          return part;
+        })
+        .flat()
+        .filter((item, index) => index !== 3 && index !== 5);
+        return result;
+    });
   //first step
   const totalAmount = processedData.reduce((acc, passanger) => acc += 1, 0);
   //second step
   const allports = processedData
     .map((passanger) => passanger[indexes.port])
     .filter((port) => port !== undefined);
-  const ports = _.uniqBy(allports).join('\n');
+  const ports = _.uniqBy(allports).join('\n  ').trim();
   //third step
   //fourth step
   //fifth step
