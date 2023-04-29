@@ -33,7 +33,7 @@ export default function solution(content){
         return result;
     });
   //first step
-  const totalAmount = processedData.reduce((acc, passanger) => acc += 1, 0);
+  const totalAmount = processedData.reduce((acc) => acc += 1, 0);
   //second step
   const allports = processedData
     .map((passanger) => passanger[indexes.port])
@@ -52,10 +52,17 @@ export default function solution(content){
   const survavalsCount = processedData
     .filter((passanger) => passanger[indexes.ifSurvived] == true)
     .reduce((acc) => acc + 1, 0);
-    console.log(survavalsCount);
   const survavingRatio = Math.round((survavalsCount / totalAmount) * 100);
   //fifth step
-  // END
+  //I couldn't understand, what exactly is a name, so here is the simple snippet for surnames
+  const allsurnames = processedData
+    .map((passanger) => passanger[indexes.name])
+    .map((name) => name.split(','))
+    .map((parts) => parts[0])
+    .filter((surname) => surname.startsWith('A'));
+  const uniqsurnames = _.uniqBy(allsurnames);
+  const surnames = uniqsurnames.join('\n  ').trim();
+  //the last step
   const output = `Total amount of passengers:
   ${totalAmount}
 The ports passengers were embarked from:
@@ -65,6 +72,8 @@ Gender ratio:
   female - ${femalesRatio}%
 Survaving ratio:
   ${survavingRatio}%
-Names, that start with A:`;
+Names, that start with A:
+  ${surnames}`;
   console.log(output);
+  // END
 }
