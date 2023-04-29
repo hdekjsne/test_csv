@@ -42,13 +42,18 @@ export default function solution(content){
   //third step
   const malesCount = processedData
     .filter((passanger) => passanger[indexes.sex] === 'male')
-    .reduce((acc, passanger) => acc + 1, 0);
+    .reduce((acc) => acc + 1, 0);
   const femalesCount = processedData
     .filter((passanger) => passanger[indexes.sex] === 'female')
-    .reduce((acc, passanger) => acc + 1, 0);
-  const malesRatio = Math.floor((malesCount / totalAmount) * 100);
-  const femalesRatio = Math.floor((femalesCount / totalAmount) * 100);
+    .reduce((acc) => acc + 1, 0);
+  const malesRatio = Math.round((malesCount / totalAmount) * 100);
+  const femalesRatio = Math.round((femalesCount / totalAmount) * 100);
   //fourth step
+  const survavalsCount = processedData
+    .filter((passanger) => passanger[indexes.ifSurvived] == true)
+    .reduce((acc) => acc + 1, 0);
+    console.log(survavalsCount);
+  const survavingRatio = Math.round((survavalsCount / totalAmount) * 100);
   //fifth step
   // END
   const output = `Total amount of passengers:
@@ -59,7 +64,7 @@ Gender ratio:
   male - ${malesRatio}%
   female - ${femalesRatio}%
 Survaving ratio:
-  %
+  ${survavingRatio}%
 Names, that start with A:`;
   console.log(output);
 }
